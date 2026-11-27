@@ -19,3 +19,4 @@ The `JAVA PROJECTS` view allows you to manage your dependencies. More details ca
 
 
 !!!REALIZANDO TESTE DE CI/CD APLICADA NO CÓDIGO!!!
+testando alteração de branch no projeto
