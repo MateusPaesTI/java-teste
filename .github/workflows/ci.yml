@@ -20,12 +20,9 @@ jobs:
               with:
                 distribution: 'temurin'
                 java-version: '21'
-                cache: 'maven'
             
-            - name: Compilar e executar testes
-              uses: actions/upload-artifact@v4
-              with:
-                name: aplicacao-java-${{github.sha}}
-                path: target/*.jar
-                retention-days: 7
-                
+            - name: Compilar aplicacao
+              run: javac -d bin src/App.java
+
+            - name: Executar aplicacao
+              run: java -cp bin App
