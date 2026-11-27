@@ -13,17 +13,17 @@ jobs:
 
         steps:
             - name: Checkout de codigo
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
 
             - name: Configurar Java
-              uses: action/setup-java@v4
+              uses: actions/setup-java@v4
               with:
                 distribution: 'temurin'
                 java-version: '21'
                 cache: 'maven'
             
             - name: Compilar e executar testes
-              uses: action/upload-artifact@v4
+              uses: actions/upload-artifact@v4
               with:
                 name: aplicacao-java-${{github.sha}}
                 path: target/*.jar
