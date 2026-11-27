@@ -1,0 +1,31 @@
+name: CI java
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    build:
+        name: Build e Testes
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout de codigo
+              uses: action/checkout@v4
+
+            - name: Configurar Java
+              uses: action/setup-java@v4
+              with:
+                distribution: 'temurin'
+                java-version: '21'
+                cache: 'maven'
+            
+            - name: Compilar e executar testes
+              uses: action/upload-artifact@v4
+              with:
+                name: aplicacao-java-${{github.sha}}
+                path: target/*.jar
+                retention-days: 7
+                
